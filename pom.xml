@@ -1099,9 +1099,9 @@
 			<id>sonar-cloud</id>
 			<properties>
 				<sonar.organization>openmrs</sonar.organization>
-				<sonar.host.url>http://54.197.186.134:9000/</sonar.host.url>
+				<sonar.host.url>http://52.200.34.172:8080/</sonar.host.url>
 		        <sonar.login>linux</sonar.login>  
-		        <sonar.login>6817310e708f7c966320391b22b1da36c8f719dc</sonar.login>
+		        <sonar.login>c7474a541ff181dea09013f64aa9bad10a9a3edf</sonar.login>
 			</properties>
 		</profile>
 	</profiles>
@@ -1151,12 +1151,12 @@
 		<repository>
 			<id>nexus</id>
 			<name>OpenMRS Nexus Releases</name>
-			<url>http://107.21.130.138:8081/repository/another/</url>
+			<url>http://34.228.32.29:8081/repository/rachel22-release/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus</id>
 			<name>OpenMRS Nexus Snapshots</name>
-			<url>http://107.21.130.138:8081/repository/another-snapshot/</url>
+			<url>http://34.228.32.29:8081/repository/rachel18-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
