@@ -9,9 +9,9 @@ tools{
 stages{
     stage('clone from source code'){
         steps{
-            sh "echo 'clone latest code from github' "
+            sh "echo 'clone latest code from github'"
             sh "echo 'build developing for dev environnment"
-            git 'https://github.com/Lion-Technology-Solutions/liontech-emr-health-app.git'
+            git 'https://github.com/devopsmike2023/liontech-emr-health-app-1.git'
         }
     }
 
