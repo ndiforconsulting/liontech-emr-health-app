@@ -1,0 +1,43 @@
+pipeline{
+    
+    agent any
+
+tools{ maven "3.9.2"
+    }
+
+stages{
+    stage('clone from source code'){
+        steps{
+            sh "echo 'clone latest code from github' "
+            sh "echo 'build developing for dev environnment"
+            git 'https://github.com/Lion-Technology-Solutions/liontech-emr-health-app.git'
+        }
+    }
+
+    stage('test+build+package'){
+        steps{
+            sh "echo 'running sonarqube code quality analysis'"
+            sh "echo 'testing must passed in order to package application'"
+            sh "mvn install"
+            sh "mvn validate"
+            sh "mvn test"
+            sh "mvn clean package"
+        }
+    }
+
+    stage('code quality'){
+        steps{
+            sh "echo 'run codequality analysis'"
+            sh "mvn sonar:sonar"
+        }
+    }
+
+    stage('upload to nexus'){
+        steps{
+            sh "mvn deploy"
+        }
+    }
+
+}
+
+}
