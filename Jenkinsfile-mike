@@ -1,0 +1,41 @@
+pipeline{
+
+    agent any
+    
+    tools{
+        maven "maven3.9.2"
+
+    }
+
+    stages{
+        stage('clonefromsourcecode'){
+            steps{
+                sh "echo 'clone latest code from github'"
+                sh "echo 'developing for build env'"
+                git 'https://github.com/devopsmike2023/liontech-emr-health-app-2.git'
+            }
+        }
+
+        stage('build+test+package'){
+            steps{
+                sh "echo 'running sonarqube code quality analysis'"
+                sh "echo 'developing my first pipeline'"
+                sh "echo 'testing must passed before packing application'"
+                sh "mvn install"
+                sh "mvn validate"
+                sh "mvn test"
+                sh "mvn clean package"
+            }
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+}
