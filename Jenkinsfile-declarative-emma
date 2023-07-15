@@ -1,0 +1,45 @@
+pipeline{
+
+    agent slave1
+    tools {
+
+        maven "maven3.9.9"
+    }
+
+    stages {
+        stage('clonefromsourcecode'){
+            steps{
+                sh "echo 'clone latest code from github '"
+                sh "echo 'build developing for dev environment '"
+                git 'https://github.com/Frozenlake1/liontech-emr-health-app.git'
+            }
+        }
+
+        stage('test+build+package'){
+            steps{
+
+                sh "echo 'running sonarqube code quality analysis'"
+                sh "echo 'class20 devops engineers dev pipeline'"
+                sh "echo 'testing must pass in other to package application'"
+                sh "mvn install"
+                sh "mvn validate"
+                sh "mvn test"
+                sh "mvn clean package"
+            }
+        }
+        stage('codequality'){
+            steps{
+                sh "echo 'performing codequalifty analysis'"
+                sh "mvn sonar:sonar"
+            }
+        }
+
+        stage('uploadtonexus'){
+            step{
+                sh "mvn deploy"
+            }
+        }
+
+    }
+
+}
