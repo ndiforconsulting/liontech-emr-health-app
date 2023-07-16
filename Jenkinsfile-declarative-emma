@@ -11,7 +11,7 @@ pipeline{
             steps{
                 sh "echo 'clone latest code from github '"
                 sh "echo 'build developing for dev environment '"
-                git 'https://github.com/Frozenlake1/liontech-emr-health-app.git'
+                git 'https://github.com/Lion-Technology-Solutions/jenkins-cicd-june17-2023.git'
             }
         }
 
